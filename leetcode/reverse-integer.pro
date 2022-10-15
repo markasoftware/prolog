@@ -1,4 +1,4 @@
-% convert number to 
+% convert number to decimal digits, least significant first ("little endian")
 le_digits(0, []).
 le_digits(X, [A|R]) :- A is X mod 10, XR is X//10, le_digits(XR, R).
 
