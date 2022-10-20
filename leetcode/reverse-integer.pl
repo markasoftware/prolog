@@ -1,5 +1,5 @@
 % convert number to decimal digits, least significant first ("little endian")
-le_digits(0, []).
+le_digits(0, []) :- !. % don't want representations with tons of zeroes on the end.
 le_digits(X, [A|R]) :- A is X mod 10, XR is X//10, le_digits(XR, R).
 
 be_digits(X, D) :- le_digits(X, RD), reverse(RD, D).
